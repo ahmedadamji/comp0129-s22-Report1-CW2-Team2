@@ -1,11 +1,8 @@
 \section{INTRODUCTION}\label{Sec:intro}
-This is an introduction to $\LaTeX$ for the COMP0219 course.  The basic $\LaTeX$ tricks you may want are the following.  First, make sure that you write all your text in the main.tex.  Whenever you want to check the .pdf file, press the PDF button on the left sidebar and click: Recompile.  Secondly, you should be able to include figures and images in your document, which is done as follows (give always a label):
 
-In Fig.~\ref{Fig:universe} we show a picture of the universe!
+\subsection*{PART I}
+In order to complete this task, each of the robots would be attached with an IMU sensor in order to measure the velocity of the robot. A pressure sensor would also be attached to the end-effectors of the two manipulators. This is to enable the robots realise when it has gripped any of the debris. In order to save time and increase accuracy, the two robots would be attached with two different types of cameras as the tasks of the robot would be slightly different. One of the robots, Robot A, would be attached with a RBG-D camera while the other robot, Robot B, would be attached with a ToF camera. This means that Robot A and Robot B would be in constant communications with each other by sharing the visual data observed from their respective sensors. 
+To begin the task, Robot A would use its RBG-D camera to provide a 3D map of its environment and localise the table via deep learning algorithms. The locations of the tables are thereafter shared with Robot B and the two robots move, with a constant speed measured by the IMU sensor, to one of the tables. Once the two robots are close to a particular table, Robot B uses its ToF camera to identify the location of the debris on the table by using deep learning algorithms to differentiate between the debris and the table. The use of the Tof camera here as they offer better accuracy in short distances compared to the RBG-D cameras. Once the positions of the debris is identified, it is shared with Robot A. Robot B first picks a debris and heads over to the other table to place it and Robot A does the same as it now knows the position of the debris.
 
-\begin{figure}[ht!]
-  \centering
-  \includegraphics[scale=1.7]{figures/universe.jpg}
-  \caption{The Universe}
-  \label{Fig:universe}
-\end{figure}
+\subsection*{PART II}
+As time is not a factor in this situation, the tasks of the two robots would be split into 2 functions: a) mapping and localisation and b) pick and place functions. Robot A would be attached with both an RBG-D camera,to map the entire environment, and a ToF camera to differentiate between the debris and the table. Robot B would attached with just a pressure sensor in the end effector as its duties is just to pick the debris from one table and place it on the other table. Similar to Part I, Robot A would first use the RBG-D camera to map the environment and localise the table. Robot A then also finds the table containing the debris and share both the location of the two tables but also the location of the debris with Robot B. Robot B the approach the table containig the debris and picks it up and places the debris in the other table. Robot B repeats this process until no debris remains
